@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CS Club | Sign Up</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap">
+  <link rel="stylesheet" href="./signup.css">
+  <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+  <script src="./js/validation.js" defer></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      background-image: url('images/line-down.svg');
+      background-repeat: no-repeat;
+      background-position: center 95%;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="images/logo.svg" alt="CS Club Logo" width="28">
+      <strong>CS Club</strong>
+    </div>
+    <div class="nav-links">
+      <a href="./index.php">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Roadmap</a>
+      <a href="#">Testimonials</a>
+      <img src="images/user-icon.svg" alt="User Icon" class="user-icon">
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <div class="signup-card">
+      <h1>Sign Up</h1>
+      <form action="process-signup.php" method="post" id="signup" novalidate>
+        <input type="text" id="name" name="name" placeholder="Name">
+        <input type="email" id="email" name="email" placeholder="Email">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Repeat Password">
+
+        <div class="checkbox-container">
+          <input type="checkbox" id="tos" name="tos" required>
+          <label for="tos">I agree to the <small>Terms of Service</small></label>
+        </div>
+
+        <div class="checkbox-container">
+          <input type="checkbox" id="newsletter" name="newsletter">
+          <label for="newsletter">I would like to receive newsletters from CS Club</label>
+        </div>
+
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
