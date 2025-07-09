@@ -330,28 +330,35 @@ h2 {
 
   /* Fullscreen Nav Menu */
   nav {
-    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #2b1d64;
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;       /* changed from left: 0 */
     width: 100vw;
     height: 100vh;
     padding: 60px 20px;
     z-index: 2000;
     text-align: center;
+
+    /* Start off-screen to the right */
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
+    /* Keep it visible for transition, but hidden by transform */
+    pointer-events: none; /* disable interaction when closed */
+    opacity: 0;           /* optional, for fade effect */
+  }
+
+  nav.open {
+    transform: translateX(0);
+    pointer-events: auto; /* enable interaction when open */
+    opacity: 1;           /* optional */
   }
 
   nav.open .close-menu {
     display: block;
-  }
-
-  nav.open {
-    display: flex;
   }
 
   nav a {

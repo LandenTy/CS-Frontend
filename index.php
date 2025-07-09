@@ -23,6 +23,11 @@ if (isset($_SESSION["user_id"])) {
   />
   <link rel="stylesheet" href="index.css" />
 </head>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
 <body>
   <header>
     <div class="container header-inner">
@@ -32,10 +37,10 @@ if (isset($_SESSION["user_id"])) {
       </div>
 
       <nav id="nav-menu">
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">Roadmap</a>
-        <a href="#">Testimonials</a>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#testimonials">Testimonials</a>
         
         <?php if ($user): ?>
             <a href="./dashboard.php">
@@ -84,7 +89,7 @@ if (isset($_SESSION["user_id"])) {
       </div>
     </section>
 
-    <section class="roadmap-section">
+    <section id="roadmap" class="roadmap-section">
       <div class="container">
         <h2>Roadmap</h2>
         <div class="roadmap-cards">
@@ -129,6 +134,15 @@ if (isset($_SESSION["user_id"])) {
       const nav = document.getElementById('nav-menu');
       nav.classList.toggle('open');
     }
+
+    document.querySelectorAll('#nav-menu a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => {
+        const nav = document.getElementById('nav-menu');
+        if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+        }
+      });
+    });
   </script>
 </body>
 </html>
